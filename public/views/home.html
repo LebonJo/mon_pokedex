@@ -1,0 +1,21 @@
+<div class="container">
+	<h1>Pokedex National</h1>
+	<table class="pokedexTable">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nom</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
+				<td>{{ pokemon.id }}</td>
+				<td>{{ pokemon.name }}</td>
+				<!-- <td class="action">
+					<button ng-if="homeCtrl.showGame(game)" ng-click="homeCtrl.joinGame(game)">Join this game !</button>
+					<button ng-if="game.user2" ng-click="homeCtrl.prepareGame(game)">Prepare for battle !</button>
+				</td> -->
+			</tr>
+		</thead>
+	</table>
+</div>
