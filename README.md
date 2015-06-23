@@ -1,6 +1,8 @@
-Titre du projet
+Pokedex
 
 Description
+
+Création d'un pokedex personnel accessible sur navigateur à la fois mobile et desktop
 
 Comment exécuter l'application
  * les trucs à installer et tout ça
