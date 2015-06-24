@@ -16,6 +16,15 @@ angular.module('pokedex')
 			});
 		},
 
+		getTestDatabase: function (){
+			var PokeService = this;
+			return $http.get("app/phps/testdatabase.php");
+			
+			// return $http.get("http://www.w3schools.com/angular/customers_mysql.php")
+   //  .success(function (response) {return response;});
+
+		}
+
 		// getPokedex: function (){
 		// 	var  PokeService = this;
 		// 	return $http.get(myApiUrl)

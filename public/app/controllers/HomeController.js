@@ -25,8 +25,10 @@ angular.module('pokedex')
 
     fetchPokedex();
 
-    // homeCtrl.showPokedex = function(game){
-    //     return (game.user1.pseudo != GameService.pseudo) && !game.user2;
-    // }
+	homeCtrl.testDatabase = function(){
+	    PokeService.getTestDatabase().then(function (result){
+	    	console.log(result);
+	    })
+	}
 
 });
