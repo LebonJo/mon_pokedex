@@ -4,14 +4,16 @@ module.exports = function(grunt){
 
 	grunt.initConfig({
 		clean:{
-			dist: ['build']
+			dist: ['C://wamp/www/monpokedex/']
+			//dist: ['build']
 		},
 		copy: { // nom de la config
 			dev:{
 				files: [{
 					expand: true,
 					src: ['public/**/*.*'],
-					dest: 'build/'
+					dest: 'C://wamp/www/monpokedex'
+					//dest: 'build/'
 				},
 				{
 					expand: true,
@@ -19,7 +21,8 @@ module.exports = function(grunt){
 					src: ['bower_components/**/angular.min.js',
 					'bower_components/**/angular-route.min.js',
 					'bower_components/**/ui-bootstrap.min.js'],
-					dest: 'build/public/lib'
+					dest: 'C://wamp/www/monpokedex/public/lib'
+					//dest: 'build/public/lib'
 				}]
 			}
 		},
@@ -57,7 +60,11 @@ module.exports = function(grunt){
 
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
+	grunt.loadNpmTasks('grunt-contrib-clean');
+
 	//grunt.loadNpmTasks('grunt-karma');
+
+	grunt.registerTask('build', ['clean', 'copy']);
 
 	grunt.registerTask('server', ['copy', 'connect', 'watch']); // lancement de plusieurs tâches en meme temps
 

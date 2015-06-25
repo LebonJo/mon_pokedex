@@ -9,28 +9,19 @@ angular.module('pokedex')
 	return {
 
 		getPokedex: function (){
-			var  PokeService = this;
-			return $http.get(pokeApiUrl + "pokedex/1")
+			var PokeService = this;
+			return $http.get("app/phps/pokedex.php")
 			.then(function (result){
-				return result.data;
+				return result;
 			});
 		},
 
-		getTestDatabase: function (){
+		getPokemon: function (id){
 			var PokeService = this;
-			return $http.get("app/phps/testdatabase.php");
-			
-			// return $http.get("http://www.w3schools.com/angular/customers_mysql.php")
-   //  .success(function (response) {return response;});
-
+			return $http.get("app/phps/pokemon.php?id=" + id)
+			.then(function (result){
+				console.log (result);
+			})
 		}
-
-		// getPokedex: function (){
-		// 	var  PokeService = this;
-		// 	return $http.get(myApiUrl)
-		// 	.then(function (result){
-		// 		return result.data;
-		// 	});
-		// },
 	}
 }]);

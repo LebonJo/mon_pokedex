@@ -1,0 +1,9 @@
+/**
+ Export to JSON plugin for PHPMyAdmin
+ @version 0.1
+ */
+
+// Database 'mon_pokedex'
+// mon_pokedex.pokemon
+
+[{"id":"1","description":"Starter de premi\u00e8re g\u00e9n\u00e9ration","localisation":"Chez le prof chen"}, {"id":"2","description":"Premi\u00e8re evolution de bulbizarre","localisation":"evolution"}, {"id":"3","description":"Stade finale de bulbizarre","localisation":"Evolution"}]

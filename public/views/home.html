@@ -5,18 +5,18 @@
 			<tr>
 				<th>#</th>
 				<th>Nom</th>
+				<th>Capturé ?</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
+			<tr class="button" ng-click="homeCtrl.showDetail(pokemon)" ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
 				<td>{{ pokemon.id }}</td>
 				<td>{{ pokemon.name }}</td>
+				<td>{{ pokemon.caught }}</td>
 				<!-- <td class="action">
-					<button ng-if="homeCtrl.showGame(game)" ng-click="homeCtrl.joinGame(game)">Join this game !</button>
-					<button ng-if="game.user2" ng-click="homeCtrl.prepareGame(game)">Prepare for battle !</button>
+					<button ng-click="homeCtrl.showDetail(pokemon)">Détails</button>
 				</td> -->
 			</tr>
 		</thead>
 	</table>
-	<button ng-click="homeCtrl.testDatabase()">Test base de donnees</button>
 </div>

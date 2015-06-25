@@ -1,34 +1,20 @@
 angular.module('pokedex')
 
-.controller("HomeController", function (PokeService){
+.controller("HomeController", function (PokeService, $location){
 
 	"use strict";
 
 	var homeCtrl = this;
 
-	homeCtrl.pokedex = [];
-
 	function fetchPokedex (){
-		PokeService.getPokedex().then(function (pokedex){
-			for(var i=0; i<pokedex.pokemon.length; i++){
-				var num = parseInt(pokedex.pokemon[i].resource_uri.split("/")[3]);
-				if(num < 1000){
-					var pokemon = {
-						id : num,
-						name : pokedex.pokemon[i].name
-					}
-					homeCtrl.pokedex.push(pokemon);
-				}
-			}
-		});
+		PokeService.getPokedex().then(function (result){
+	    	homeCtrl.pokedex = result.data;
+	    });
     }
 
     fetchPokedex();
 
-	homeCtrl.testDatabase = function(){
-	    PokeService.getTestDatabase().then(function (result){
-	    	console.log(result);
-	    })
-	}
-
+    homeCtrl.showDetail = function (){
+    	$location.path("/pokemon");
+    }
 });

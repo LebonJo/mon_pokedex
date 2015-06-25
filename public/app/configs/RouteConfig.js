@@ -13,6 +13,11 @@ angular.module("pokedex")
 		controller: "AdminController",
 		controllerAs: "adminCtrl"
 	})
+	.when("/pokemon", {
+		templateUrl: "views/pokemon.html",
+		controller: "PokemonController",
+		controllerAs: "pokemonCtrl"
+	})
 	.otherwise({
 		redirectTo: "/"
 	})
