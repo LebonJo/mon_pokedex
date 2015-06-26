@@ -16,11 +16,11 @@ angular.module('pokedex')
 			});
 		},
 
-		getPokemon: function (id){
+		getPokemon: function (name){
 			var PokeService = this;
-			return $http.get("app/phps/pokemon.php?id=" + id)
+			return $http.get("app/phps/pokemon.php?name=\"" + name + "\"")
 			.then(function (result){
-				console.log (result);
+				return result;
 			})
 		}
 	}

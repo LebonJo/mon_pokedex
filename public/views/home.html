@@ -9,7 +9,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="button" ng-click="homeCtrl.showDetail(pokemon)" ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
+			<tr class="button" ng-click="homeCtrl.showDetail(pokemon.name)" ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
 				<td>{{ pokemon.id }}</td>
 				<td>{{ pokemon.name }}</td>
 				<td>{{ pokemon.caught }}</td>

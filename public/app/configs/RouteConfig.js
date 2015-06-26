@@ -13,7 +13,7 @@ angular.module("pokedex")
 		controller: "AdminController",
 		controllerAs: "adminCtrl"
 	})
-	.when("/pokemon", {
+	.when("/:name", {
 		templateUrl: "views/pokemon.html",
 		controller: "PokemonController",
 		controllerAs: "pokemonCtrl"

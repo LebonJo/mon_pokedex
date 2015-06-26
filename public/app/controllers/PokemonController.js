@@ -1,15 +1,14 @@
 angular.module('pokedex')
 
-.controller("PokemonController", function (PokeService, $location){
+.controller("PokemonController", function (PokeService, $routeParams){
 
 	"use strict";
 
-	var homeCtrl = this;
+	var pokemonCtrl = this;
 
-	function getPokemon($location){
-		console.log($location);
-		PokeService.getPokemon().then(function (result){
-	    	homeCtrl.pokedex = result.data;
+	function getPokemon(){
+		PokeService.getPokemon($routeParams['name']).then(function (result){
+	    	pokemonCtrl.pokemon = result.data[0];
 	    });
     }
 

@@ -4,24 +4,21 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $db = mysqli_connect('localhost', 'root', '', 'mon_pokedex');
 
-$sql = "SELECT * FROM pokemon WHERE id =".$_GET['id'];
+$select_pokemon = "SELECT * FROM pokedex WHERE name =".$_GET['name']; // FAIRE UN JOIN !!!!!!
 
-$req = mysqli_query($db, $sql);
+$result = mysqli_query($db, $select_pokemon);
 
 echo("[");
 
-$i = 1;
+$pokemon = mysqli_fetch_assoc($result);
+// on affiche les informations de l'enregistrement en cours
+echo '{"id":'.$pokemon['id'].',"name":"'.$pokemon['name'].'","caught":'.$pokemon['caught'];
 
-while($data = mysqli_fetch_assoc($req)){ 
-    if($i == 1){
-    	echo('{');
-    	$i = 2;
-    }else{
-    	echo(',{');
-    }
-    // on affiche les informations de l'enregistrement en cours 
-    echo '"id": '.$data['id'].', "description":"'.$data['description'].'", "localisation":"'.$data['localisation'].'"}'; 
-};
+$select_infos = "SELECT * from pokemon WHERE id=".$pokemon['id_pokemon'];
+$response = mysqli_query($db, $select_infos);
+$infos = mysqli_fetch_assoc($response);
+
+echo ',"description":"'.$infos['description'].'", "localisation":"'.$infos['localisation'].'"}'; 
 
 echo("]");
 

@@ -14,7 +14,8 @@ angular.module('pokedex')
 
     fetchPokedex();
 
-    homeCtrl.showDetail = function (){
-    	$location.path("/pokemon");
+    homeCtrl.showDetail = function (name){
+    	console.log(name);
+    	$location.path("/"+name);
     }
 });
