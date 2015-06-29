@@ -20,7 +20,9 @@ while($data = mysqli_fetch_assoc($req)){
     	echo(',{');
     }
     // on affiche les informations de l'enregistrement en cours 
-    echo '"id": '.$data['id'].', "id_pokemon":'.$data['id_pokemon'].', "name":"'.$data['name'].'", "caught":'.$data['caught'].'}'; 
+    echo '"id": '.$data['id'].', "id_pokemon":'.$data['id_pokemon'].', "name":"'.$data['name'].'", "caught":';
+    if($data['caught'] == 1) echo 'true}';
+    else echo 'false}'; 
 };
 
 echo("]");
