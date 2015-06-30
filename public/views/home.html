@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>Pokedex National</h1>
-	<table class="pokedexTable table">
+	<!-- <table class="pokedexTable table">
 		<thead>
 			<tr>
 				<th>Sprite</th>
@@ -11,14 +11,19 @@
 		</thead>
 		<tbody>
 			<tr class="button" ng-click="homeCtrl.showDetail(pokemon.name)" ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
-				<td><img src="http://pokeapi.co/media/img/1.png"></td>
+				<td><img ng-src="http://pokeapi.co/media/img/{{pokemon.id}}.png"></td>
 				<td>{{ pokemon.id }}</td>
 				<td>{{ pokemon.name }}</td>
 				<td><input type="checkbox" ng-model="pokemon.caught"></td>
-				<!-- <td class="action">
-					<button ng-click="homeCtrl.showDetail(pokemon)">Détails</button>
-				</td> -->
 			</tr>
 		</thead>
-	</table>
+	</table> -->
+	<div class="row">
+		<div class="button text-center col-md-2" ng-class="{capture : pokemon.caught}" ng-click="homeCtrl.showDetail(pokemon.name)" ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
+			<img ng-src="http://pokeapi.co/media/img/{{pokemon.id}}.png">
+			<p>#{{ pokemon.id }}</p>
+			<h4>{{ pokemon.name }}</h4>
+			<input type="checkbox" ng-model="pokemon.caught">
+		</div>
+	</div>
 </div>

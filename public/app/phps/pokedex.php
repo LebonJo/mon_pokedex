@@ -4,6 +4,8 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $db = mysqli_connect('localhost', 'root', '', 'mon_pokedex');
 
+mysqli_set_charset($db, 'utf8');
+
 $sql = "SELECT * FROM pokedex";
 
 $req = mysqli_query($db, $sql);
