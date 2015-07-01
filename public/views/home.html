@@ -19,11 +19,16 @@
 		</thead>
 	</table> -->
 	<div class="row">
-		<div class="button text-center col-md-2" ng-class="{capture : pokemon.caught}" ng-click="homeCtrl.showDetail(pokemon.name)" ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
-			<img ng-src="http://pokeapi.co/media/img/{{pokemon.id}}.png">
-			<p>#{{ pokemon.id }}</p>
-			<h4>{{ pokemon.name }}</h4>
-			<input type="checkbox" ng-model="pokemon.caught">
+		<div class="text-center col-md-2" ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
+			<div class="pokecontainer" ng-class="{default : !pokemon.caught, capture : pokemon.caught, shiney : pokemon.caught_shiney}">
+				<div class="button" ng-click="homeCtrl.showDetail(pokemon.name)">
+					<img class="pokemini" ng-src="http://pokeapi.co/media/img/{{pokemon.id}}.png">
+					<p>#{{ pokemon.id }}</p>
+					<h4>{{ pokemon.name }}</h4>
+				</div>
+				<input type="checkbox" ng-model="pokemon.caught">
+				<input type="checkbox" ng-model="pokemon.caught_shiney">
+			</div>
 		</div>
 	</div>
 </div>

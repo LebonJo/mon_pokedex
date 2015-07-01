@@ -10,6 +10,28 @@ body{
 	text-align: center;
 }
 
-.capture{
+.default{
 	background-color: LightGray;
+	border: 5px solid LightGray;
+}
+
+.capture{
+	background-color: LightGreen;
+	border: 5px solid LightGreen;
+}
+
+.shiney{
+	background-color: LightGreen;
+	border: 5px solid Gold;
+}
+
+.pokemini{
+	width: 100px;
+	height: 100px;
+}
+
+.pokecontainer{
+	margin: 5px;
+	padding: 5px;
+	border-radius: 10%;
 }
