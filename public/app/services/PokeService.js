@@ -22,6 +22,14 @@ angular.module('pokedex')
 			.then(function (result){
 				return result;
 			})
+		},
+
+		getCapture: function (){
+			var PokeService = this;
+			return $http.get("app/phps/capture.php")
+			.then(function (result){
+				return result;
+			});
 		}
 	}
 }]);

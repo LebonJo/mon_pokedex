@@ -25,12 +25,9 @@ while($data = mysqli_fetch_assoc($req)){
     echo '"id": '.$data['id'].', "name":"'.$data['name'].'", "caught":';
     if($data['caught'] == 1) echo 'true';
     else echo 'false';
-    echo ', "caught_shiney" :';
-    if($data['caught_shiney'] == 1) echo 'true';
-    else echo 'false';
-    if($data['type1'] != null) echo ', "type1":"'.$data['type1'].'"';
-    if($data['type2'] != null) echo ', "type2":"'.$data['type2'].'"';
-    echo('}');
+    echo ', "caught_shiney":';
+    if($data['caught_shiney'] == 1) echo 'true}';
+    else echo 'false}';
 };
 
 echo("]");
