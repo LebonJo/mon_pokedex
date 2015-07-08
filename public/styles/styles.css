@@ -48,3 +48,7 @@ body{
 .impair{
 	background-color: red;
 }
+
+.pokedexTable tbody tr td{
+	vertical-align: middle;
+}

@@ -1,26 +1,52 @@
 <div class="container">
 	<h1>Pokedex National</h1>
-	<!-- <table class="pokedexTable table">
-		<thead>
-			<tr>
-				<th>Sprite</th>
-				<th>#</th>
-				<th>Nom</th>
-				<th>Normal</th>
-				<th>Shiney</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class="button" ng-repeat="pokemon in captureCtrl.pokedex | orderBy:'id'">
-				<td><img ng-src="http://pokeapi.co/media/img/{{pokemon.id}}.png"></td>
-				<td>{{ pokemon.id }}</td>
-				<td>{{ pokemon.name }}</td>
-				<td><input type="checkbox" ng-model="pokemon.caught"></td>
-				<td><input type="checkbox" ng-model="pokemon.caught_shiney"><td>
-			</tr>
-		</thead>
-	</table> -->
 	<div class="row">
+		<div class="col-md-6">
+			<table class="pokedexTable table">
+				<thead>
+					<tr>
+						<th class="text-center">#</th>
+						<th class="text-center">Sprite</th>
+						<th>Nom</th>
+						<th class="text-center">Normal</th>
+						<th class="text-center">Shiney</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="button" ng-repeat="pokemon in captureCtrl.pokedex | orderBy:'id'" ng-if="$even">
+						<td class="text-center">{{ pokemon.id }}</td>
+						<td class="text-center"><img class="pokeXmini" ng-src="http://pokeapi.co/media/img/{{pokemon.id}}.png"></td>
+						<td>{{ pokemon.name }}</td>
+						<td class="text-center"><input type="checkbox" ng-model="pokemon.caught" ng-click="captureCtrl.setCapture(pokemon)"></td>
+						<td class="text-center"><input type="checkbox" ng-model="pokemon.caught_shiney"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-6">
+			<table class="pokedexTable table">
+				<thead>
+					<tr>
+						<th class="text-center">#</th>
+						<th class="text-center">Sprite</th>
+						<th>Nom</th>
+						<th class="text-center">Normal</th>
+						<th class="text-center">Shiney</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="button" ng-repeat="pokemon in captureCtrl.pokedex | orderBy:'id'" ng-if="$odd">
+						<td class="text-center">{{ pokemon.id }}</td>
+						<td class="text-center"><img class="pokeXmini" ng-src="http://pokeapi.co/media/img/{{pokemon.id}}.png"></td>
+						<td>{{ pokemon.name }}</td>
+						<td class="text-center"><input type="checkbox" ng-model="pokemon.caught"></td>
+						<td class="text-center"><input type="checkbox" ng-model="pokemon.caught_shiney"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- <div class="row">
 		<div class="text-center col-md-1 col-ld-4" ng-repeat="pokemon in captureCtrl.pokedex | orderBy:'id'">
 			<div ng-class-odd='"impair"' ng-class-even='"pair"'>
 				<h4>#{{ pokemon.id }}</h4>
@@ -30,5 +56,5 @@
 				<input type="checkbox" ng-model="pokemon.caught_shiney">
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>

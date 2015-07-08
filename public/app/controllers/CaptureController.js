@@ -13,4 +13,11 @@ angular.module('pokedex')
     };
 
     getCapture();
+
+    captureCtrl.setCapture = function (pokemon){
+    	PokeService.setCapture(pokemon).then(function (result){
+    		console.log(result);
+    		getCapture();
+    	});
+    }
 });

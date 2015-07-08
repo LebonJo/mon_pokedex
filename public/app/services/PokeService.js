@@ -30,6 +30,14 @@ angular.module('pokedex')
 			.then(function (result){
 				return result;
 			});
+		},
+
+		setCapture: function (pokemon){
+			var PokeService = this;
+			return $http.post('app/phps/postCaught.php', JSON.stringify(pokemon))
+			.then(function (result){
+				return result;
+			});
 		}
 	}
 }]);
