@@ -34,8 +34,36 @@ angular.module('pokedex')
 
 		setCapture: function (pokemon){
 			var PokeService = this;
-			return $http.post('app/phps/postCaught.php', JSON.stringify(pokemon))
-			.then(function (result){
+			var caught_shiney = pokemon.caught_shiney && pokemon.caught;
+			var request = $http({
+			    method: "post",
+			    url: 'app/phps/postCaught.php',
+			    data: {
+					id : pokemon.id,
+					caught : pokemon.caught == true ? 1 : 0,
+					caught_shiney : caught_shiney == true ? 1 : 0
+			    },
+			    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			});
+			return request.then(function (result){
+				return result;
+			});
+		},
+
+		setCaptureShiney: function (pokemon){
+			var PokeService = this;
+			var caught = pokemon.caught || pokemon.caught_shiney;
+			var request = $http({
+			    method: "post",
+			    url: 'app/phps/postCaught.php',
+			    data: {
+					id : pokemon.id,
+					caught : caught == true ? 1 : 0,
+					caught_shiney : pokemon.caught_shiney == true ? 1 : 0
+			    },
+			    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			});
+			return request.then(function (result){
 				return result;
 			});
 		}

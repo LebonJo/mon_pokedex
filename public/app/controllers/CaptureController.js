@@ -16,8 +16,13 @@ angular.module('pokedex')
 
     captureCtrl.setCapture = function (pokemon){
     	PokeService.setCapture(pokemon).then(function (result){
-    		console.log(result);
     		getCapture();
     	});
-    }
+    };
+
+    captureCtrl.setCaptureShiney = function (pokemon){
+        PokeService.setCaptureShiney(pokemon).then(function (result){
+            getCapture();
+        });
+    };
 });
