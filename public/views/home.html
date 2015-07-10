@@ -19,7 +19,7 @@
 		</thead>
 	</table> -->
 	<div class="row">
-		<div class="text-center col-md-2 col-ld-4" ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
+		<div class="text-center col-lg-2 col-md-3 col-sm-4 col-xs-5 col-xs-offset-1 col-sm-offset-0" ng-repeat="pokemon in homeCtrl.pokedex | orderBy:'id'">
 			<div class="pokecontainer" ng-class="{default : !pokemon.caught, capture : pokemon.caught, shiney : pokemon.caught_shiney}">
 				<div class="button" ng-click="homeCtrl.showDetail(pokemon.name)">
 					<img class="pokemini" ng-src="http://pokeapi.co/media/img/{{pokemon.id}}.png">
