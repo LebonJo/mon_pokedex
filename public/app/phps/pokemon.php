@@ -22,7 +22,7 @@ $select_infos = "SELECT * from pokemon WHERE id=".$pokemon['id_pokemon'];
 $response = mysqli_query($db, $select_infos);
 $infos = mysqli_fetch_assoc($response);
 
-echo ',"description":"'.$infos['description'].'", "localisation":"'.$infos['localisation'].'"}'; 
+echo ',"description":"'.$infos['description'].'", "localisation":"'.$infos['localisation'].'", "en_name":"'.$infos['en_name'].'"}'; 
 
 echo("]");
 

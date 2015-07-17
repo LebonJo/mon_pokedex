@@ -8,11 +8,6 @@ angular.module("pokedex")
 		controller: "HomeController",
 		controllerAs: "homeCtrl"
 	})
-	.when("/admin", {
-		templateUrl: "views/admin.html",
-		controller: "AdminController",
-		controllerAs: "adminCtrl"
-	})
 	.when("/capture", {
 		templateUrl: "views/capture.html",
 		controller: "CaptureController",
