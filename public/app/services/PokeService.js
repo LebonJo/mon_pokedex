@@ -1,6 +1,6 @@
 angular.module('pokedex')
 
-.factory("PokeService", ["$http", function ($http){
+.factory("PokeService", ["$http", function ($http, $localStorage){
 
 	"use strict";
 
@@ -8,9 +8,9 @@ angular.module('pokedex')
 
 	return {
 
-		getPokedex: function (){
+		getPokedex: function (id_user, bottomLimit, topLimit){
 			var PokeService = this;
-			return $http.get("app/phps/pokedex.php")
+			return $http.get("app/phps/pokedex.php?id_user=" + id_user + "&bottomLimit=" + bottomLimit + "&topLimit=" + topLimit)
 			.then(function (result){
 				return result;
 			});
@@ -24,24 +24,25 @@ angular.module('pokedex')
 			})
 		},
 
-		getCapture: function (){
+		getCapture: function (id_user){
 			var PokeService = this;
-			return $http.get("app/phps/capture.php")
+			return $http.get("app/phps/capture.php?id_user=\"" + id_user + "\"")
 			.then(function (result){
 				return result;
 			});
 		},
 
-		setCapture: function (pokemon){
+		setCapture: function (pokemon, id_user){
 			var PokeService = this;
-			var caught_shiney = pokemon.caught_shiney && pokemon.caught;
+			var shiny = pokemon.shiny && pokemon.normal;
 			var request = $http({
 			    method: "post",
 			    url: 'app/phps/postCaught.php',
 			    data: {
 					id : pokemon.id,
-					caught : pokemon.caught == true ? 1 : 0,
-					caught_shiney : caught_shiney == true ? 1 : 0
+					id_user : id_user,
+					normal : pokemon.normal == true ? 1 : 0,
+					shiny : shiny == true ? 1 : 0
 			    },
 			    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			});
@@ -50,20 +51,56 @@ angular.module('pokedex')
 			});
 		},
 
-		setCaptureShiney: function (pokemon){
+		setCaptureShiney: function (pokemon, id_user){
 			var PokeService = this;
-			var caught = pokemon.caught || pokemon.caught_shiney;
+			var normal = pokemon.normal || pokemon.shiny;
 			var request = $http({
 			    method: "post",
 			    url: 'app/phps/postCaught.php',
 			    data: {
 					id : pokemon.id,
-					caught : caught == true ? 1 : 0,
-					caught_shiney : pokemon.caught_shiney == true ? 1 : 0
+					id_user : id_user,
+					normal : normal == true ? 1 : 0,
+					shiny : pokemon.shiny == true ? 1 : 0
 			    },
 			    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			});
 			return request.then(function (result){
+				return result;
+			});
+		},
+
+		connect: function (pseudo, mdp){
+			var PokeService = this;
+			return $http.get("app/phps/connect.php?pseudo=\"" + pseudo + "\"&mdp=\"" + mdp + "\"")
+			.then(function (result){
+				return result;
+			})
+		},
+
+		createUser: function (pseudo, mdp, nom, prenom, email){
+			var PokeService = this;
+			var request = $http({
+			    method: "post",
+			    url: 'app/phps/createUser.php',
+			    data: {
+					pseudo : pseudo,
+					mdp : mdp,
+					nom : nom,
+					prenom : prenom,
+					email : email
+			    },
+			    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8' }
+			});
+			return request.then(function (result){
+				return result;
+			});
+		},
+
+		findUserOrEmail: function (type, userOrEmail){
+			var PokeService = this;
+			return $http.get("app/phps/findUserOrEmail.php?type=\"" + type + "\"&userOrEmail=\"" + userOrEmail + "\"")
+			.then(function (result){
 				return result;
 			});
 		}

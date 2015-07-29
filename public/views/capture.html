@@ -1,3 +1,5 @@
+<div ng-include src="'views/nav.html'"></div>
+
 <div class="container">
 	<h1>Pokedex National</h1>
 	<div class="row">
@@ -17,8 +19,8 @@
 						<td class="text-center">{{ pokemon.id }}</td>
 						<td class="text-center"><img class="pokeXmini" ng-src="http://pokeapi.co/media/img/{{pokemon.id}}.png"></td>
 						<td>{{ pokemon.name }}</td>
-						<td class="text-center"><input type="checkbox" ng-model="pokemon.caught" ng-click="captureCtrl.setCapture(pokemon)"></td>
-						<td class="text-center"><input type="checkbox" ng-model="pokemon.caught_shiney" ng-click="captureCtrl.setCaptureShiney(pokemon)"></td>
+						<td class="text-center"><input type="checkbox" ng-model="pokemon.normal" ng-click="captureCtrl.setCapture(pokemon)"></td>
+						<td class="text-center"><input type="checkbox" ng-model="pokemon.shiny" ng-click="captureCtrl.setCaptureShiney(pokemon)"></td>
 					</tr>
 				</tbody>
 			</table>
@@ -39,8 +41,8 @@
 						<td class="text-center">{{ pokemon.id }}</td>
 						<td class="text-center"><img class="pokeXmini" ng-src="http://pokeapi.co/media/img/{{pokemon.id}}.png"></td>
 						<td>{{ pokemon.name }}</td>
-						<td class="text-center"><input type="checkbox" ng-model="pokemon.caught" ng-click="captureCtrl.setCapture(pokemon)"></td>
-						<td class="text-center"><input type="checkbox" ng-model="pokemon.caught_shiney" ng-click="captureCtrl.setCaptureShiney(pokemon)"></td>
+						<td class="text-center"><input type="checkbox" ng-model="pokemon.normal" ng-click="captureCtrl.setCapture(pokemon)"></td>
+						<td class="text-center"><input type="checkbox" ng-model="pokemon.shiny" ng-click="captureCtrl.setCaptureShiney(pokemon)"></td>
 					</tr>
 				</tbody>
 			</table>

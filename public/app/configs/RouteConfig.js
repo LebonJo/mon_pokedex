@@ -4,6 +4,11 @@ angular.module("pokedex")
 				
 	$routeProvider
 	.when("/", {
+		templateUrl: "views/user.html",
+		controller: "UserController",
+		controllerAs: "userCtrl"
+	})
+	.when("/home", {
 		templateUrl: "views/home.html",
 		controller: "HomeController",
 		controllerAs: "homeCtrl"
@@ -13,7 +18,7 @@ angular.module("pokedex")
 		controller: "CaptureController",
 		controllerAs: "captureCtrl"
 	})
-	.when("/:name", {
+	.when("/pokemon/:name", {
 		templateUrl: "views/pokemon.html",
 		controller: "PokemonController",
 		controllerAs: "pokemonCtrl"

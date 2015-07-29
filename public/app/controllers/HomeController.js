@@ -1,13 +1,19 @@
 angular.module('pokedex')
 
-.controller("HomeController", function (PokeService, $location){
+.controller("HomeController", function (PokeService, $location, $localStorage){
 
 	"use strict";
 
 	var homeCtrl = this;
 
+	homeCtrl.currentPage = 1;
+	homeCtrl.totalItems = 721;
+	homeCtrl.itemsPerPage = 30;
+
 	function fetchPokedex (){
-		PokeService.getPokedex().then(function (result){
+		var bottomLimit = (homeCtrl.currentPage-1) * 30;
+		var topLimit = homeCtrl.currentPage * 30;
+		PokeService.getPokedex($localStorage.id_user, bottomLimit, topLimit).then(function (result){
 	    	homeCtrl.pokedex = result.data;
 	    });
     }
@@ -15,6 +21,10 @@ angular.module('pokedex')
     fetchPokedex();
 
     homeCtrl.showDetail = function (name){
-    	$location.path("/"+name);
+    	$location.path("/pokemon/"+name);
+    }
+
+    homeCtrl.pageChanges = function (){
+    	fetchPokedex();
     }
 });

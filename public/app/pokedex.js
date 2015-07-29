@@ -1,1 +1,1 @@
-angular.module('pokedex', ["ngRoute", "ui.bootstrap"]);
+angular.module('pokedex', ["ngRoute", "ui.bootstrap", "ngStorage"]);

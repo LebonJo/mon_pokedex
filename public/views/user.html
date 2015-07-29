@@ -1,0 +1,51 @@
+<div ng-include src="'views/nav.html'"></div>
+
+<div class="container" style="width:400px">
+	<div class="text-center" ng-if="userCtrl.showNewUserForm == false">
+		<h1>Connexion</h1>
+		<alert ng-repeat="alert in userCtrl.alerts" type="{{alert.type}}">{{alert.msg}}</alert>
+		<form ng-submit="userCtrl.connect(pseudo, password)">
+			<div class="form-group">
+				<label>Pseudo</label>
+				<input type="text" class="form-control text-center" placeholder="pseudo" ng-model="pseudo"/>
+			</div>
+			<div class="form-group">
+				<label>Mot de passe</label>
+				<input type="password" class="form-control text-center" placeholder="password" ng-model="password"/>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-primary">Se connecter</button>
+				<button type="button" class="btn btn-primary" ng-click="userCtrl.newUser()">Nouveau compte</button>
+	    	</div>
+		</form>
+	</div>
+	<div class="text-center" ng-if="userCtrl.showNewUserForm == true">
+		<h1>Nouveau compte</h1>
+		<alert ng-repeat="alert in userCtrl.alerts" type="{{alert.type}}">{{alert.msg}}</alert>
+		<form ng-submit="userCtrl.createUser()">
+			<div class="form-group">
+				<label>Pseudo (Identifiant de connexion)</label>
+				<input type="text" class="form-control text-center" placeholder="pseudo" ng-model="pseudo"/>
+			</div>
+			<div class="form-group">
+				<label>Mot de passe</label>
+				<input type="password" class="form-control text-center" placeholder="password" ng-model="password"/>
+			</div>
+			<div class="form-group">
+				<label>Nom</label>
+				<input type="text" class="form-control text-center" placeholder="nom" ng-model="nom"/>
+			</div>
+			<div class="form-group">
+				<label>Prénom</label>
+				<input type="text" class="form-control text-center" placeholder="prénom" ng-model="prenom"/>
+			</div>
+			<div class="form-group">
+				<label>Email</label>
+				<input type="mail" class="form-control text-center" placeholder="mail@provider.com" ng-model="email"/>
+			</div>
+			<div>
+				<button type="button" class="btn btn-primary" ng-click="userCtrl.createUser(pseudo, password, nom, prenom, email)">Valider</button>
+	    	</div>
+		</form>
+	</div>
+</div>

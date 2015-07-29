@@ -1,13 +1,13 @@
 angular.module('pokedex')
 
-.controller("CaptureController", function (PokeService){
+.controller("CaptureController", function (PokeService, $localStorage){
 
 	"use strict";
 
 	var captureCtrl = this;
 
 	function getCapture (){
-		PokeService.getCapture().then(function (result){
+		PokeService.getCapture($localStorage.id_user).then(function (result){
 	    	captureCtrl.pokedex = result.data;
 	    });
     };
@@ -15,13 +15,13 @@ angular.module('pokedex')
     getCapture();
 
     captureCtrl.setCapture = function (pokemon){
-    	PokeService.setCapture(pokemon).then(function (result){
+    	PokeService.setCapture(pokemon, $localStorage.id_user).then(function (result){
     		getCapture();
     	});
     };
 
     captureCtrl.setCaptureShiney = function (pokemon){
-        PokeService.setCaptureShiney(pokemon).then(function (result){
+        PokeService.setCaptureShiney(pokemon, $localStorage.id_user).then(function (result){
             getCapture();
         });
     };

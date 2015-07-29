@@ -1,0 +1,15 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavController as navCtrl">
+	<div class="container">
+		<div class="navbar-header">
+			<span class="navbar-brand text-uppercase" ng-if="navCtrl.id_user == 0">Mon pokedex</span>
+			<span class="navbar-brand text-uppercase" ng-if="navCtrl.id_user != 0">Pokedex de {{navCtrl.username}}</span>
+		</div>
+		<div class="collapse navbar-collapse" ng-if="navCtrl.id_user != 0">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#/home">Accueil</a></li>
+				<li><a href="#/capture">Capture</a></li>
+				<li><a href="#/" ng-click="navCtrl.disconnect()">Déconnexion</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>

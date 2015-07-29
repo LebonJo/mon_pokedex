@@ -5,10 +5,11 @@ $postdata = json_decode($input);
 
 $db = mysqli_connect('localhost', 'root', '', 'mon_pokedex');
 
+//$db = mysqli_connect('mysql.hostinger.fr', 'u547058661_admin', 'VtqGHJBxr0', 'u547058661_base');
+
 mysqli_set_charset($db, 'utf8');
 
-$sql = 'UPDATE pokedex SET caught='.$postdata->caught.', caught_shiney='.$postdata->caught_shiney.' WHERE id='.$postdata->id;
-//$sql = 'UPDATE pokedex SET caught=0 WHERE id=1';
+$sql = 'UPDATE capture SET normal='.$postdata->normal.', shiny='.$postdata->shiny.' WHERE id_user='.$postdata->id_user.' AND id_pokemon='.$postdata->id;
 
 
 $req = mysqli_query($db, $sql);
