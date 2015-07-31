@@ -21,7 +21,7 @@
 		</thead>
 	</table> -->
 	<div class="text-center">
-		<pagination direction-links="false" total-items="homeCtrl.totalItems" ng-model="homeCtrl.currentPage" items-per-page="homeCtrl.itemsPerPage" ng-change="homeCtrl.pageChanges()" num-pages="smallnumPages"></pagination>
+		<pagination  class="pagination-sm" ng-change="homeCtrl.pageChanges()" total-items="homeCtrl.totalItems" ng-model="homeCtrl.currentPage" items-per-page="homeCtrl.itemsPerPage" max-size="homeCtrl.maxSize" boundary-links="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
 	</div>
 
 	<div class="row">
@@ -35,5 +35,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="text-center">
+		<pagination  class="pagination-sm" ng-change="homeCtrl.pageChanges()" total-items="homeCtrl.totalItems" ng-model="homeCtrl.currentPage" items-per-page="homeCtrl.itemsPerPage" max-size="homeCtrl.maxSize" boundary-links="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
 	</div>
 </div>
