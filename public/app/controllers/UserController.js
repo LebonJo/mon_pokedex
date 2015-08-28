@@ -39,7 +39,7 @@ angular.module('pokedex')
                             if(result.data[0].success){
                                 userCtrl.alerts.push({type : 'danger', msg: 'Email déjà utilisé'});
                             } else {
-                                //PokeService.createUser(pseudo, mdp, nom, prenom, email).then(function (result){});
+                                PokeService.createUser(pseudo, mdp, nom, prenom, email).then(function (result){});
                                 userCtrl.showNewUserForm = false;
                                 userCtrl.alerts.push({type : 'success', msg: 'Compte créé. Vous pouvez vous connecter !'});
                             }                            

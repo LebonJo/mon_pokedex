@@ -9,8 +9,8 @@ $db = mysqli_connect('localhost', 'root', '', 'mon_pokedex');
 
 mysqli_set_charset($db, 'utf8');
 
-/*$sql = 'INSERT INTO user (pseudo, mdp, nom, prenom, email) VALUES ("'.$postdata->pseudo.'", "'.$postdata->mdp.'", "'.$postdata->nom.'", "'.$postdata->prenom.'", "'.$postdata->email.'")';
-$req = mysqli_query($db, $sql);*/
+$sql = 'INSERT INTO user (pseudo, mdp, nom, prenom, email) VALUES ("'.$postdata->pseudo.'", "'.$postdata->mdp.'", "'.$postdata->nom.'", "'.$postdata->prenom.'", "'.$postdata->email.'")';
+$req = mysqli_query($db, $sql);
 
 //$sql = "SELECT id_user FROM user WHERE pseudo='".$postdata->pseudo."' AND mdp='".$postdata->mdp."' AND nom='".$postdata->nom."' AND prenom='".$postdata->prenom."' AND email='".$postdata->email."'";
 $sql = "SELECT id FROM user WHERE pseudo='$postdata->pseudo' AND mdp='$postdata->mdp' AND nom='$postdata->nom' AND prenom='$postdata->prenom' AND email='$postdata->email'";

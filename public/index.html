@@ -13,10 +13,11 @@
 	</head>
 	<body ng-app = "pokedex">
 
-		<div ng-view></div>
+		<div class="row">
+			<div ng-view></div>
+		</div>
 
 		<footer class="panel-footer myFooter">
-			<!--p><a href="#" class="btn btn-primary" role="button">Contact</a></p-->
 			All rights reserved to me, myself and I.
 		</footer>
 
@@ -39,18 +40,5 @@
 		<script src="app/controllers/HomeController.js"></script>
 		<script src="app/controllers/PokemonController.js"></script>
 		<script src="app/controllers/CaptureController.js"></script>
-		<!-- JQuery est nécessaire pour faire fonctionner bootstrap -->
-		<!--script src="https://code.jquery.com/jquery-2.1.4.min.js"></script-->
-		<!-- Latest compiled and minified JavaScript -->
-		<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
-
-
-		<!-- tentative firebase
-
-		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-		<script>
-			var myDataRef = new Firebase('https://monpokedex.firebaseio.com/monpokedex');
-			myDataRef.push({name: "florizarre", id: 3});
-		</script-->
 	</body>
 </html>

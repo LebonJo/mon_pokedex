@@ -8,34 +8,50 @@ $db = mysqli_connect('localhost', 'root', '', 'mon_pokedex');
 
 mysqli_set_charset($db, 'utf8');
 
-$sql = "SELECT * FROM capture c JOIN pokedex p ON c.id_pokemon = p.id_pokemon WHERE c.id_user=".$_GET['id_user']." LIMIT ".$_GET['bottomLimit'].", ".$_GET['topLimit'];
+if(!isset($_GET['id_user'])){
 
-$req = mysqli_query($db, $sql);
+    $sql = "SELECT COUNT(*) FROM pokedex";
 
-echo("[");
+    $req = mysqli_query($db, $sql);
 
-$i = 1;
+    $data = mysqli_fetch_row($req);
 
-while($data = mysqli_fetch_assoc($req)){
-    if($i == 1){
-        echo('{');
-        $i = 2;
-    }else{
-        echo(',{');
-    }
-    // on affiche les informations de l'enregistrement en cours
-    echo '"id": '.$data['id'].', "name":"'.$data['name'].'", "normal":';
-    if($data['normal'] == 1) echo 'true';
-    else echo 'false';
-    echo ', "shiny" :';
-    if($data['shiny'] == 1) echo 'true';
-    else echo 'false';
-    if($data['type1'] != null) echo ', "type1":"'.$data['type1'].'"';
-    if($data['type2'] != null) echo ', "type2":"'.$data['type2'].'"';
-    echo('}');
-};
+    echo('[{ "size" : '.$data[0].' }]');
 
-echo("]");
+} else {
+
+    $sql = "SELECT * FROM capture c JOIN pokedex p ON c.id_pokemon = p.id_pokemon WHERE c.id_user=".$_GET['id_user']." LIMIT ".$_GET['bottomLimit'].", ".$_GET['topLimit'];
+
+    $req = mysqli_query($db, $sql);
+
+    echo("[");
+
+    $i = 1;
+
+    while($data = mysqli_fetch_assoc($req)){
+        if($i == 1){
+            echo('{');
+            $i = 2;
+        }else{
+            echo(',{');
+        }
+        // on affiche les informations de l'enregistrement en cours
+        echo '"id": '.$data['id'].', "name":"'.$data['name'].'", "normal":';
+        if($data['normal'] == 1) echo 'true';
+        else echo 'false';
+        echo ', "shiny" :';
+        if($data['shiny'] == 1) echo 'true';
+        else echo 'false';
+        if($data['type1'] != null) echo ', "type1":"'.$data['type1'].'"';
+        if($data['type2'] != null) echo ', "type2":"'.$data['type2'].'"';
+        echo('}');
+    };
+
+    echo("]");
+
+}
+
+
 
 mysqli_close($db);
 ?>

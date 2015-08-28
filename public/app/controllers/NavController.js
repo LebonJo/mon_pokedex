@@ -21,6 +21,6 @@ angular.module('pokedex')
     navCtrl.disconnect = function(){
     	delete $localStorage.id_user;
     	delete $localStorage.username;
-    	$location.path("/login");
+    	$location.path("/");
     }
 });

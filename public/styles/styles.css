@@ -52,3 +52,8 @@ body{
 .pokedexTable tbody tr td{
 	vertical-align: middle;
 }
+
+.myNavBar{
+	border-bottom-right-radius: 10%;
+	border-bottom-left-radius: 10%;
+}
