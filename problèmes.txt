@@ -1,34 +1,12 @@
-* ajouter les attaques suivant les générations
-* supprimer puissance, precision, pp
-* ajouter les descriptions
-* ajouter les localisations
-* fichier supplémentaire pour description et localisation ????
-
-
-* pas d'attaque sur la 2G (seulement 1G prise en compte dans le code)
-
-* problème pour récupérer les données de chaque génération (nouvelle version de pokepedia ??)
-	-> utiliser l'adresse de base pour les données générales (nom, type, poids, taille ....)
-	-> utiliser l'adresse particulière pour chaque génération pour les attaques, les descriptions et les localisations
-		ex : "http://www.pokepedia.fr/Noctali/G%C3%A9n%C3%A9ration_2" pour la gen2 de noctali
-
-
-
-problème d'accent
+problÃ¨me d'accent
 
 noeunoeuf
-é
-è
-ê
-à
-ô (hôte)
-ï (humanoïde)
-accents dans les clés
-
-
-
-
-* Page à récupérer pour la table attaque
-	http://www.pokepedia.fr/Liste_des_attaques
+Ã©
+Ã¨
+Ãª
+Ã 
+Ã´ (hÃ´te)
+Ã¯ (humanoÃ¯de)
+accents dans les clÃ©s
 
 
