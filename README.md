@@ -19,3 +19,7 @@ La création de la base de données se fait en deux étapes :
 L'hébergement du site et de la base se fera sur hostinger.com
 
 <h3>Développement</h3>
+
+L'application est développé avec AngularJS.
+
+Chaques parties de l'application sont réparties dans des dossiers de manière pertinente. (Les controllers avec les controllers, les vues avec les vues, ...). Le programme tape sur la base de données MySQL présentée plus tôt.
